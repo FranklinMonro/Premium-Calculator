@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Premium Calculator: Members Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Calculator app</h1>
+      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+      <a class="navbar-link" href="{% url 'history' %}">History</a>
+    </div>
+
+    <div class="container">
+      <form  method="POST">
+        {% csrf_token %}
+        {{membInf.as_p}}
+        <p>Enter Your ID: <input type="text" id="enterID" oninput="getAge()"> </p>
+        <p>Born Date: <input type="text" id="outputID2" name="" value="" ></p>
+        <input type="hidden" id="currentYear" name="" value=""></p>
+        <input type="hidden" id="currentAge"  name="" value=""></p>
+
+        <p>Investment: <select id="inv" name="" onchange="investmentAmount();feeBracket();memFee();totalFee()" >
+          <option value="0">Pick Amount</option>
+          <option value="1">R10 000.00</option>
+          <option value="2">R15 000.00</option>
+          <option value="3">R18 000.00</option>
+          <option value="4">R20 000.00</option>
+          <option value="5">R30 000.00</option>
+        </select></p>
+        <p>Monthly fee: R <input type="text" id="monthlyfee" name="" value= "10"> </p>
+        <input type="hidden" id="ageBracket" name="" value="" >
+        <input type="hidden" id="premBracket" name="" value="" >
+        <input type="hidden" id="feebrak"  name="" value="">
+        <p>Premium Fee: R <input type="text" id="premiumFee" name="" value="" ></p>
+        <p>Total Fee: R <input type="text" id="totalfee" name="" value=""> </p>
+        <input type="submit" name="" value="SUBMIT">
+      </form>
+
+    </div>
+
+      <script type="text/javascript" src="{% static 'js/prem.js'%}" charset="utf-8"></script>
+  </body>
+</html>

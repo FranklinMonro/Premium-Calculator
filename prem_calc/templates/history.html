@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Premium Calculator: History Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+
+    </div>
+    <h1>History</h1>
+
+      {% for mem in history_dict %}
+
+      <ul>
+        <li>Name: {{mem.memberName}}</li>
+        <li>ID Number: {{mem.member_id}}</li>
+        <li>Insurede Value: {{mem.insuredValue}}</li>
+        <li>Premium Fee: {{mem.premiumFee}}</li>
+        <li>Total Fee: {{mem.total}}</li>
+      </ul>
+
+      {% endfor %}
+
+
+
+  </body>
+</html>
